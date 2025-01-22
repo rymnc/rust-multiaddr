@@ -46,6 +46,13 @@ pub struct Multiaddr {
 }
 
 impl Multiaddr {
+    /// Create a new `Multiaddr` from a byte slice.
+    pub const fn from_static(bytes: &'static [u8]) -> Self {
+        Self {
+            bytes: Bytes::from_static(bytes),
+        }
+    }
+
     /// Create a new, empty multiaddress.
     pub fn empty() -> Self {
         Self {
